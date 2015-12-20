@@ -4,8 +4,6 @@
 #include <stack>
 
 #include "structures.h"
-#include "read_and_write.h"
-#include "generation.h"
 #include "grad_algo.h"
 #include "mod_grad_algo.h"
 

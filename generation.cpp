@@ -4,7 +4,6 @@
 #include <stack>
 
 #include "structures.h"
-#include "read_and_write.h"
 #include "generation.h"
 
 
