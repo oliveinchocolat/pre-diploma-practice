@@ -8,16 +8,16 @@
 int result_of_substitution(point A, lin_function f, int k);
 
 // вычисление значения одной клетки матрицы
-bool one_cell(point A, pair_of_lin B, int k);
+bool one_cell_value(point A, pair_of_lin B, int k);
 
 // проверяет на равенство функции пары
 bool is_equal(pair_of_lin B);
 
 // генерирует столбец матрицы
-std::vector<pair_of_lin> gen_col(int k);
+std::vector<pair_of_lin> gen_list_of_columns(int k);
 
 // генерирует строку матрицы
-std::vector<point> gen_str(int k);
+std::vector<point> gen_list_of_strings(int k);
 
 // генерирует матрицу
 std::vector<std::vector<bool>> gen_matrix(int k);
