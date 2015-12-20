@@ -17,18 +17,18 @@ int main()
   int k;
   std::cin >> k;
   
-  auto matrix = gen_matrix(k);
-  auto mods = gen_list_of_modify_bounds(k);
-  auto list = grad_algo_with_mod(matrix, k, mods);
+  auto matrix_for_grad_algorithm = gen_matrix(k);
+  auto user_mods = gen_list_of_modify_bounds(k);
+  auto coverage = grad_algo_with_mod(matrix_for_grad_algorithm, k, user_mods);
   
-  if (list.size() == 0)
+  if (coverage.size() == 0)
   { 
     std::cout << "Impossible";
   }
-  if (list.size() > 0)
+  if (coverage.size() > 0)
   {
-    std::cout << "Possible, size = " << list.size() << std::endl;
-    get_and_print(k, list);
+    std::cout << "Possible, size = " << coverage.size() << std::endl;
+    get_and_print(k, coverage);
   }
   std::cout << std::endl;
   
