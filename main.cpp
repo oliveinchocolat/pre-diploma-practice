@@ -28,7 +28,7 @@ int main()
   if (coverage.size() > 0)
   {
     std::cout << "Possible, size = " << coverage.size() << std::endl;
-    get_and_print(k, coverage);
+    get_and_print_univ_function(k, coverage);
   }
   std::cout << std::endl;
   

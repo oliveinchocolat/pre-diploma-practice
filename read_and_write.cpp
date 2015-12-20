@@ -139,11 +139,12 @@ std::vector<std::vector<bool>> code_read_matrix()
   return matrix;
 }
 
-void print_function(int k, std::vector<std::vector<int>> matrix)
+void print_function(std::vector<std::vector<int>> matrix)
 {
-  for (int i = 0; i < k; ++i)
+  int n = matrix.size();
+  for (int i = 0; i < n; ++i)
   {
-    for (int j = 0; j < k; ++j)
+    for (int j = 0; j < n; ++j)
       if (matrix[i][j] < 0)
         std::cout << "- ";
       else

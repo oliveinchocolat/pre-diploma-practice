@@ -20,7 +20,7 @@ std::stack<bool> create_sequence_by_int(int c, int size);
 std::vector<std::vector<bool>> code_read_matrix();
 
 // выводит в std::cout функцию, заданную таблицей значений
-void print_function(int k, std::vector<std::vector<int>> matrix);
+void print_function(std::vector<std::vector<int>> matrix);
 
 #endif
 
