@@ -22,7 +22,7 @@ void print_matrix(int k, std::vector<std::vector<bool>> matrix)
   } 
 }
 
-void print_matrix_byte(int k, std::vector<std::vector<bool>> matrix)
+void code_print_matrix(int k, std::vector<std::vector<bool>> matrix)
 {
   std::cout << k << std::endl;
   std::cout << matrix.size() << " " << matrix[0].size() << std::endl;
@@ -84,7 +84,7 @@ std::vector<std::vector<bool>> read_matrix()
   return matrix;
 }
 
-std::stack<bool> create_seq_by_int(int c, int size)
+std::stack<bool> create_sequence_by_int(int c, int size)
 {
   std::stack<bool> answer;
   while (c > 0)
@@ -97,7 +97,7 @@ std::stack<bool> create_seq_by_int(int c, int size)
   return answer;
 }
 
-std::vector<std::vector<bool>> read_matrix_byte()
+std::vector<std::vector<bool>> code_read_matrix()
 {
   int n, m;
   std::cin >> n >> m;
@@ -115,7 +115,7 @@ std::vector<std::vector<bool>> read_matrix_byte()
 	while (j < m/step)
 	{
 	  std::cin >> c;
-	  auto seq = create_seq_by_int(c, step);
+	  auto seq = create_sequence_by_int(c, step);
 	  while (seq.size() > 0)
 	  {
 		matrix[i].push_back(seq.top());
@@ -127,7 +127,7 @@ std::vector<std::vector<bool>> read_matrix_byte()
 	if (m % step != 0)
 	{
   	  std::cin >> c;
-	  auto seq = create_seq_by_int(c, m%step);
+	  auto seq = create_sequence_by_int(c, m%step);
 	  while (seq.size() > 0)
 	  {
 		matrix[i].push_back(seq.top());
@@ -137,4 +137,18 @@ std::vector<std::vector<bool>> read_matrix_byte()
 	}
   }
   return matrix;
+}
+
+void print_function(int k, std::vector<std::vector<int>> matrix)
+{
+  for (int i = 0; i < k; ++i)
+  {
+    for (int j = 0; j < k; ++j)
+      if (matrix[i][j] < 0)
+        std::cout << "- ";
+      else
+        std::cout << matrix[i][j] << " ";
+    std::cout << std::endl;
+  }
+  return;
 }

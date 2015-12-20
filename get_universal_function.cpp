@@ -35,21 +35,6 @@ std::vector<std::vector<int>> get_function(int k, std::vector<point> seq)
   return funct;
 }
 
-
-void print_function(int k, std::vector<std::vector<int>> matrix)
-{
-  for (int i = 0; i < k; ++i)
-  {
-    for (int j = 0; j < k; ++j)
-      if (matrix[i][j] < 0)
-        std::cout << "- ";
-      else
-        std::cout << matrix[i][j] << " ";
-    std::cout << std::endl;
-  }
-  return;
-}
-
 void get_and_print(int k, std::vector<int> list_of_strings)
 {
   std::vector<point> answer;
