@@ -19,7 +19,7 @@ point get_point_by_string_number(int k, int string_number)
   return result_point;
 }
 
-std::vector<std::vector<int>> get_function_matrix(int k, std::vector<point> list_of_values)
+std::vector<std::vector<int>> get_function_by_points(int k, std::vector<point> list_of_values)
 {
   std::vector<int> tmp(k, -1);
   std::vector<std::vector<int>> result_function(k, tmp);
@@ -31,7 +31,7 @@ std::vector<std::vector<int>> get_function_matrix(int k, std::vector<point> list
   return result_function;
 }
 
-void get_and_print_univ_function(int k, std::vector<int> list_of_strings)
+std::vector<std::vector<int>> get_univ_function_by_coverage(int k, std::vector<int> list_of_strings)
 {
   std::vector<point> answer;
   for (auto t = list_of_strings.begin(); t != list_of_strings.end(); ++t)
@@ -40,7 +40,5 @@ void get_and_print_univ_function(int k, std::vector<int> list_of_strings)
 	answer.push_back(tmp);
   }
   
-  auto funct = get_function_matrix(k, answer);
-  print_function(funct);
-  return;  
+  return get_function_by_points(k, answer);  
 }

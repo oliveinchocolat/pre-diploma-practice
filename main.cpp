@@ -28,7 +28,8 @@ int main()
   if (coverage.size() > 0)
   {
     std::cout << "Possible, size = " << coverage.size() << std::endl;
-    get_and_print_univ_function(k, coverage);
+    auto universal_function = get_univ_function_by_coverage(k, coverage);
+    print_function(universal_function);
   }
   std::cout << std::endl;
   
