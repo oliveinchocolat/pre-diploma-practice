@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <stack>
 
+#include "read_and_write.h"
+
 //                    СТРУКТУРЫ
 
 // линейная функция двух переменных
@@ -23,25 +25,6 @@ struct point
   int x_1, x_2;
   int y;
 };
-
-
-//                        ЧТЕНИЕ И ВЫВОД
-
-// выводит матрицу на std::cout
-void print_matrix(int k, std::vector<std::vector<bool>> matrix);
-
-// выводит кодированную матрицу на std::cout
-void print_matrix_byte(int k, std::vector<std::vector<bool>> matrix);
-
-// считывает матрицу из std::cin 
-std::vector<std::vector<bool>> read_matrix();
-
-// для кодирования матрицы
-std::stack<bool> create_seq_by_int(int c, int size);
-
-// считывает кодированную матрицу из std::cin
-std::vector<std::vector<bool>> read_matrix_byte();
-
 
 //                      ГЕНЕРАЦИЯ МАТРИЦЫ
 
@@ -112,9 +95,6 @@ point get_point_by_int(int k, int t);
 // создает таблицу функции из набора точек со значениями функций
 std::vector<std::vector<int>> get_function(int k, std::vector<point> seq);
 
-// выводит в std::cout функцию, заданную таблицей значений
-void print_function(int k, std::vector<std::vector<int>> matrix);
-
 // считывает набор строк и выводит в std::cout функцию
 void get_and_print(int k, std::vector<int> list_of_strings);
 
@@ -129,12 +109,9 @@ int main()
   auto mods = gen_list_of_modify_bounds(k);
   auto list = grad_algo_with_mod(matrix, k, mods);
   
-  //for (int i = 0; i < list.size(); ++i)
-    //std::cout << list[i] + 1 << " ";
   if (list.size() == 0)
   { 
     std::cout << "Impossible";
-    //std::cerr << "Impossible" << std::endl;
   }
   if (list.size() > 0)
   {
@@ -177,7 +154,7 @@ void print_matrix_byte(int k, std::vector<std::vector<bool>> matrix)
   {
 	int j = 0;
 	int c = 0;
-	while (j + step < matrix[0].size()) // 7?
+	while (j + step < matrix[0].size()) 
 	{
 	  c = 0;
 	  for (int a = 0; a < step; ++a)
@@ -588,7 +565,6 @@ void print_function(int k, std::vector<std::vector<int>> matrix)
   {
     for (int j = 0; j < k; ++j)
       if (matrix[i][j] < 0)
-        //std::cout << "-1 ";
         std::cout << "- ";
       else
         std::cout << matrix[i][j] << " ";
@@ -599,12 +575,8 @@ void print_function(int k, std::vector<std::vector<int>> matrix)
 
 void get_and_print(int k, std::vector<int> list_of_strings)
 {
-  //int t = 0;
   std::vector<point> answer;
-//  int k = 12;
-  //std::cin >> k;
   for (auto t = list_of_strings.begin(); t != list_of_strings.end(); ++t)
-//  while (std::cin >> t)
   {
 	point tmp = get_point_by_int(k, (*t));
 	answer.push_back(tmp);
