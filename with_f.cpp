@@ -8,17 +8,7 @@
 #include "generation.h"
 #include "grad_algo.h"
 #include "mod_grad_algo.h"
-
-//                    ВОССТАНОВЛЕНИЕ УНИВЕРСАЛЬНОЙ ФУНКЦИИ
-
-// Возвращает точку с определением, соответствующую номеру строки t
-point get_point_by_int(int k, int t);
-
-// создает таблицу функции из набора точек со значениями функций
-std::vector<std::vector<int>> get_function(int k, std::vector<point> seq);
-
-// считывает набор строк и выводит в std::cout функцию
-void get_and_print(int k, std::vector<int> list_of_strings);
+#include "get_universal_function.h"
 
 //                    MAIN
 
