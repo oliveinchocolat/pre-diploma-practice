@@ -22,5 +22,5 @@ std::vector<std::vector<bool>> read_matrix_byte();
 // выводит в std::cout функцию, заданную таблицей значений
 void print_function(int k, std::vector<std::vector<int>> matrix);
 
-#endif // TRAFFICSYSTEM_H
+#endif
 
