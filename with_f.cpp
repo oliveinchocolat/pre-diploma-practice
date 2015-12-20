@@ -7,17 +7,7 @@
 #include "read_and_write.h"
 #include "generation.h"
 #include "grad_algo.h"
-
-//                     ГРАДИЕНТНЫЙ АЛГОРИТМ С МОДИФИКАЦИЕЙ
-
-// возвращает номер строки по точке
-int number_by_mod(int k, point A);
-
-// возвращает модицикации для создания "рамки"
-std::vector<point> gen_list_of_modify_bounds(int k);
-
-// реализует градиентный алгоритм с предварительной модификацией -- по умолчанию добавляет в покрытие все строки из mods
-std::vector<int> grad_algo_with_mod(std::vector<std::vector<bool>> matrix, int k, std::vector<point> mods);
+#include "mod_grad_algo.h"
 
 //                    ВОССТАНОВЛЕНИЕ УНИВЕРСАЛЬНОЙ ФУНКЦИИ
 
