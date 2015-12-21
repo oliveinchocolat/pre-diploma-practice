@@ -53,7 +53,6 @@
 
 \centerline {{\bf СВОЙСТВА \(k\)-ЗНАЧНЫХ ФУНКЦИЙ}}
 \centerline {{\bf ДВУХ ПЕРЕМЕННЫХ}}
-%\centerline {{\bf ПРИ МАЛЫХ ПРОСТЫХ k}}
 \normalsize
 
 \vfill
@@ -72,19 +71,11 @@
 {\bf А. А. Вороненко }
 \end{minipage}
 
-%\vfill
 
 \begin{minipage}{0.45\textwidth}
-% {\bf К защите допускаю} \\
 \hfill             \\
 {\bf \underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }}
 \end{minipage}
-%\hfill
-%\begin{minipage}{0.4\textwidth}
-% {\bf К защите рекомендую} \\
-%{\bf «\underline{ }\underline{ }\underline{ }\underline{ }»
-%\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ }\underline{ } 2015 г.}
-%\end{minipage}
 
 
 \vfill
@@ -154,6 +145,46 @@
 Рассматривались значения \(k = 4, 6, 8, 9, 10\).
 
 %-------------------------------основная часть-----------------------------------------
+\chapter*{Описание основных этапов работы программы}
+
+\section*{Создание матрицы}
+
+По заданному значению \(k\) строится булева матрица \(A\), столбцам которой соответствуют всевозможные пары различных линейных 
+функций двух переменных \(k\)-значной логики, а строкам -- тройки \((x_1, x_2, y), 0 \geq x_i < k, 0 \geq y < k\), 
+где \((x_1, x_2)\) -- набор, на котором определяется универсальная функция, а \(y\) -- возможное значение на этом наборе.
+
+\(A[i][j] = true\) тогда и только тогда, когда для пары \((f(x_1, x_2), g(x_1, x_2))\), соответствующей столбцу \(j\), и тройки 
+\((x_1, x_2, y)\), соответствующей строке \(i\), выполнено \[f(x_1, x_2) = y \neq g(x_1, x_2)\].
+
+Основной функцией построения матрицы является
+
+\begin{lstlisting}
+std::vector<std::vector<bool>> gen_matrix(int k);
+\end{lstlisting}
+
+\section*{Построение покрытия матрицы}
+
+Для полученной матрицы строится градиентное покрытие следующим образом:
+\begin{enumerate}
+\item Пока есть неиспользованные строки и непокрытые столбцы
+\begin{compactlist}
+\item Выбирается строка \(s_i = (x_1, x_2, y)\) с наибольшим количеством единиц, находящихся в непокрытых столбцах.
+\item Строка \(s_i\) добавляется в покрытие, все столбцы, покрытые ею, отмечаются.
+\item Все строки вида \((x_1, x_2, y')\), где \(y \neq y'\), отмечаются как использованные, но не добавляются в покрытие.
+\end{compactlist}
+\item Если все столбцы покрыты, то полученное покрытие задаёт универсальную функцию.
+\end{enumerate}
+
+Основной функцией построения покрытия матрицы является
+
+\begin{lstlisting}
+std::vector<int> grad_algo(std::vector<std::vector<bool>> matrix, int k);
+\end{lstlisting}
+
+В случае, если покрытие было найдено, функция возвращает список номеров строк, являющихся покрытием. 
+Иначе возвращает пустой список.
+
+\section*{}
 
 \chapter*{Результаты работы}
 
