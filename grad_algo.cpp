@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <stack>
 
 #include "grad_algo.h"
 
